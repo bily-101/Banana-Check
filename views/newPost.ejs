@@ -1,0 +1,35 @@
+<%- include("partials/header") %>
+<div class="ui main text container segment">
+    
+<div class="ui huge header">New Post</div>
+
+<form class="ui form" action="/can" method="post">
+    <div class="field">
+        <label>Title</label>
+         <input type="text" name="post[product]" placeholder="product name">
+    </div>
+        <div class="field">
+        <label>Image</label>
+         <input type="text" name="post[image]" placeholder="picture">
+    
+    </div>
+        <div class="field">
+        <label>Post</label>
+        <textarea name="post[body]"></textarea>
+    </div>
+    <div class="field">
+        <label>site</label>
+        <input name="post[site]">
+        <label>Rating from a scale of 1 to </label>
+  <input name="post[rating]" type="number" max="5">
+</span>
+    </div>
+    <button class="ui inverted red button">Submit</button>
+</form>
+
+</div>
+
+<script>
+
+</script>
+<%- include("partials/footer") %>

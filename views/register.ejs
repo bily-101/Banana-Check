@@ -1,0 +1,27 @@
+
+<%- include("partials/header") %>
+<div class="container">
+<h1>Sign Up Form</h1>
+
+<div class="jumbotron">
+    
+<form action="/register" method="POST">
+    <div class="ui input">
+    <input type="text" name="username" placeholder="username">
+    <br>
+    </div>
+    <br>
+    <div class="ui input">
+    <input type="password" name="password" placeholder="password">
+    </div>
+    <br>
+    <div class="ui input">
+        <input type="link" name="email" placeholder="email">
+    </div>
+    
+    <button class="btn btn-success">Submit</button>
+</form>
+</div>
+</div>
+
+<%- include("partials/footer") %>

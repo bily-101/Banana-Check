@@ -1,0 +1,20 @@
+<%- include("partials/header") %>
+<div class="container">
+<h1>Forgot password</h1>
+<form action="/forgot-password?_method=PUT" method="POST">
+<div>
+    <label for="email">Email</label>
+    <input type="text" id="email" name="email" autofocus>
+    </div>
+<div>
+    
+    <input type="submit" value="Reset Password">
+    </div>
+
+</form>
+</div>
+
+
+
+
+<%- include("partials/footer") %>

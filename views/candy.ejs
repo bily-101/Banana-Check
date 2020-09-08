@@ -1,0 +1,41 @@
+<%- include("partials/header") %>
+
+<div class="container">
+    
+
+
+<h1><%= post.product %></h1>
+<span>
+<% for (i = 0; i < post.rating; i++) { %>
+
+<span class="fa fa-star checked"></span>
+<% if (post.rating=== 0){ %>
+    <span class="fa fa-star"></span>
+<span class="fa fa-star"></span>
+<span class="fa fa-star"></span>
+<span class="fa fa-star"></span>
+    <span class="fa fa-star"></span>
+    
+
+
+<% } %>
+<% } %>
+    
+</span>
+<img src="<%=post.image%>" width=200 hight=200 alt="...">
+
+<div class="jumbotron" style="width: 50%;">
+<p><%=post.body%> </p>
+</div>
+
+<a href="<%=post.link%>" class="btn btn-primary">Link to site</a>
+
+
+    
+
+        <br>     
+        <br>
+        <br>
+    
+</div>
+<%- include("partials/footer") %>

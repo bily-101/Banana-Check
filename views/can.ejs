@@ -1,0 +1,111 @@
+<%- include("partials/header") %>
+<style>
+  #searchbar{ 
+     margin-left: 15%; 
+     padding:15px; 
+     border-radius: 10px; 
+   } 
+   .checked {
+  color: orange;
+}
+ 
+   input[type=text] { 
+      width: 30%; 
+      -webkit-transition: width 0.15s ease-in-out; 
+      transition: width 0.15s ease-in-out; 
+   } 
+ 
+   /* When the input field gets focus, 
+        change its width to 100% */
+   input[type=text]:focus { 
+     width: 70%; 
+   } 
+ 
+  #list{ 
+    font-size:  1.5em; 
+    margin-left: 90px; 
+   } 
+ 
+.products{ 
+   display: list-item;     
+  }  
+</style>
+<div class="container">
+
+    <br>
+    <br>
+        <input id="searchbar" onkeyup="search()" type="text"
+        name="search" placeholder="Search products.."> 
+<form class="form-inline my-2 my-lg-0">
+      <!--<input class="form-control mr-sm-2" type="search" id="searchbar" placeholder="Search" aria-label="Search">-->
+      <!--<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>-->
+    </form>
+
+          <a href="/newPost">New post</a>
+    <br>
+    <br>
+    
+    <div class="jumbotron">
+  <h1 class="display-4">Welcome to Banana Check <% currentUser.username %> </h1>
+  <p class="lead">This site is for checking out products before you buy them.</p>
+  <hr class="my-4">
+  <p>Everyone around the world who has bought the product uploads reviews and videos of how well it was.</p>
+
+</div>
+<br>
+<br>
+
+
+<% posts.forEach(function(post){ %>
+        <div class="card products" style="width: 18rem;">
+              <% if (post.rating>=4) { %>
+    <span><img src="https://image.flaticon.com/icons/svg/189/189119.svg" width="35" height="35"> Banana Checked</span>
+<% } %>
+  <img src="<%=post.image%>" class="card-img-top" alt="...">
+
+  <div class="card-body">
+    <h5 class="card-title "><%= post.product %></h5>
+    <p class="card-text"><%=post.body.substring(0,50) %>...</p>
+    <h1>
+    
+  
+<% for (i = 0; i < post.rating; i++) { %>
+
+<span class="fa fa-star checked"></span>
+
+<% } %>
+
+
+
+<!--<span class="fa fa-star checked"></span>-->
+<!--<span class="fa fa-star checked"></span>-->
+<!--<span class="fa fa-star"></span>-->
+<!--<span class="fa fa-star"></span>-->
+</h1>
+    <a href="/can/<%=post._id%>" class="btn btn-primary stretched-link">More info</a>
+  </div>
+</div>
+<br>
+  
+
+<% }) %>
+</div>
+
+<script>
+    function search() { 
+    let input = document.getElementById('searchbar').value 
+    input=input.toLowerCase(); 
+    let x = document.getElementsByClassName('products'); 
+      
+    for (i = 0; i < x.length; i++) {  
+        if (!x[i].innerHTML.toLowerCase().includes(input)) { 
+            x[i].style.display="none"; 
+        } 
+        else { 
+            x[i].style.display="list-item";                  
+        } 
+    } 
+} 
+</script>
+
+<%- include("partials/footer") %>
